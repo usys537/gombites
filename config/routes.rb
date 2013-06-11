@@ -1,4 +1,10 @@
 Gombites::Application.routes.draw do
+  get "home/index"
+
+  get "home/about"
+
+  get "home/rules"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
