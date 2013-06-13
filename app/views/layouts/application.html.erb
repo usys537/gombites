@@ -7,8 +7,70 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
 
-<%= yield %>
+				<a class="brand" href="/">Gombites</a>
 
+				
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active">
+							<%= link_to "Home", root_path %>
+						</li>	
+						<li><%= link_to "Forum", forem.root_path %></li>																	
+					</ul>
+					<ul  class="nav pull-right">
+							<% if user_signed_in? %>
+								<li><%= link_to current_user.profile_name, main_app.edit_user_registration_path %></li>
+								<li><%= link_to "Log Out", main_app.logout_path %></li>
+								<li><% if current_user.forem_admin %>
+								           <%= link_to "Administrate", forem.admin_root_url %>
+								    <% end %>
+								</li>
+							<% else %>
+								<li><%= link_to "Register", main_app.register_path %></li>
+								<li><%= link_to "Log In", main_app.login_path %></li>							
+							<% end %>
+          		    </ul>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		
+		<% if flash[:notice] %>
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+
+		<% if flash[:alert] %>
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<%= flash[:alert] %>
+			</div>
+		<% end %>
+		
+	<%= yield %>
+	</div>
+	<hr>
+	<footer class="footer">
+		<div class="container">
+			<p class="muted credit">"Designed and built by "
+				<a href="#" target="_blank">Usman Shamaki</a>
+				"and "
+				<a href="#">Shamsky</a> "."
+			</p>
+		</div>
+	</footer>
 </body>
 </html>
