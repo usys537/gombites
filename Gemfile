@@ -5,11 +5,16 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 gem 'devise'
 gem 'forem', :git => "git://github.com/radar/forem.git"
 gem 'will_paginate', '3.0.3'
 gem 'simple_form'
+
+group :development, :test do
+	gem 'sqlite3'
+	gem 'rspec-rails', '2.11.0'
+end
 
 
 
@@ -26,6 +31,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :production do
+	gem 'pg'
+end
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

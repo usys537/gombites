@@ -1,0 +1,22 @@
+<%= render :partial => 'forem/forums/head', :locals => { :forum => @topic.forum } %>
+
+<h2><%= t("forem.post.new") %></h2>
+
+<% if @reply_to_post %>
+  <div id='posts' class="well">
+    <%= render 'reply_to_post', :post => @reply_to_post %>
+  </div>
+<% else %>
+  <h3 class='topic_subject'>
+    <%= @topic.subject %>
+  </h3>
+<% end %>
+
+<div class="row">
+	<div class="span12">
+		<%= simple_form_for [forem, @topic, @post], html: { class: "well" } do |f| %>
+ 			 <%= render :partial => "form", :locals => { :f => f } %>
+ 			 <%= f.button :submit, t("forem.post.buttons.reply") %>
+		<% end %>
+	</div>
+</div>
