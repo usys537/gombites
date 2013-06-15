@@ -9,12 +9,15 @@ Gombites::Application.routes.draw do
   root :to => "forem/forums#index"
 
 
+
   devise_for :users
   devise_scope :user do
     get 'register', to: "devise/registrations#new", as: :register 
     get 'login', to: "devise/sessions#new", as: :login
     get 'logout', to: "devise/sessions#destroy", as: :logout  
   end
+
+  mount RailsAdmin::Engine => '/railsadmin', :as => 'rails_admin' # Feel free to change '/admin' to any namespace you need.
 
   resources :users 
   match 'users/:id', :to => "users#show", :as => :user 
