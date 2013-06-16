@@ -10,6 +10,7 @@ gem 'devise'
 gem 'forem', :git => "git://github.com/radar/forem.git"
 gem 'will_paginate', '3.0.3'
 gem 'simple_form'
+gem 'cancan'
 gem 'rails_admin'
 
 group :development, :test do
