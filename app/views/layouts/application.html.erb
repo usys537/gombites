@@ -35,6 +35,10 @@
 								           <%= link_to "Administrate", forem.admin_root_url %>
 								    <% end %>
 								</li>
+								<li><% if current_user.forem_admin %>
+								           <%= link_to "Gombites admin", main_app.rails_admin_url %>
+								    <% end %>
+								</li>
 							<% else %>
 								<li><%= link_to "Register", main_app.register_path %></li>
 								<li><%= link_to "Log In", main_app.login_path %></li>							
