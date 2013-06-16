@@ -13,6 +13,7 @@ gem 'simple_form'
 gem 'cancan'
 gem 'rails_admin'
 
+
 group :development, :test do
 	gem 'sqlite3'
 	gem 'rspec-rails', '2.11.0'
