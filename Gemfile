@@ -12,6 +12,8 @@ gem 'will_paginate', '3.0.3'
 gem 'simple_form'
 gem 'cancan'
 gem 'rails_admin'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 group :development, :test do
