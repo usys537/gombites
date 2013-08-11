@@ -16,6 +16,7 @@ gem 'rails_admin'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'rails_config'
+gem 'figaro'
 
 
 group :development, :test do
