@@ -15,6 +15,7 @@ gem 'cancan'
 gem 'rails_admin'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'rails_config'
 
 
 group :development, :test do
