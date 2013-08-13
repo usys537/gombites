@@ -9,11 +9,20 @@
           <%= link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> <%= t('time_ago_in_words', :time => time_ago_in_words(last_post.created_at)) -%>
         <% else %>
           <%= t('forem.forums.index.none') -%>
-        <% end %>
-      </span>
-    </td>
-    <td class="topics-count"><%= topics_count(forum) %></td>
-    <td class="posts-count"><%= posts_count(forum) %></td>
-    <td class="views-count"><%= forum.views_count %></td>
+        <% end %> 
+
+        <fieldset>
+          <span class="topics-count"><%= t('topics', :scope => 'forem.general') %>:
+            <span class="label label-info"><%= topics_count(forum) %></span>
+          </span> |
+          <span class="posts-count"><%= t('posts', :scope => 'forem.general') %>:
+            <span class="label label-info"><%= posts_count(forum) %></span>
+          </span>|
+          <span class="views-count"><%= t('forem.forums.index.views') %>:
+            <span class="label label-info"><%= forum.views_count %></span>
+          </span>
+        </fieldset>
+      </span>      
+    </td>     
   </tr>
 <% end %>
